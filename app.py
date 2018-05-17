@@ -25,5 +25,19 @@ def hello(name):
     return render_template(
         'test.html',**locals())
 
+@app.route("/major")
+def major():
+    majors = [ "CS",
+               "Math",
+               "Philosophy",
+               "Astronomy",
+               "Psychology",
+               "Econ"  ]
+    randomNumber = randint(0,len(majors)-1)
+    major = majors[randomNumber]
+    return major
+
+
+
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=80)
